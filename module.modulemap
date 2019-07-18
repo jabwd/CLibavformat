@@ -1,0 +1,5 @@
+module CLibavformat [System] {
+    header "shim.h"
+    link "avformat"
+    export *
+}
