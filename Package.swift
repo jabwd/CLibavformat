@@ -4,21 +4,19 @@ import PackageDescription
 
 let package = Package(
     name: "CLibavformat",
-    pkgConfig: "libavformat",
-    providers: [
-        .apt(["ffmpeg"])
-    ],
     products: [
         .library(
             name: "CLibavformat",
             targets: ["CLibavformat"]),
-        ],
-    dependencies: [
     ],
     targets: [
-        .target(
+        .systemLibrary(
             name: "CLibavformat",
-            dependencies: []
+            pkgConfig: "avformat",
+            providers: [
+                .brew(["ffmpeg"]),
+                .apt(["ffmpeg"])
+            ]
         )
     ]
 )
